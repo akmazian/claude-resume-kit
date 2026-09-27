@@ -12,7 +12,7 @@
 RESUME (2-page, resume.cls):  ~20 variable bullets | Skills 13 lines (4-3-2-2-2) | 5 pubs | 5 awards
 CV     (5-page, cv.cls):      19-21 variable bullets (45 rendered lines) | Skills 17 lines (4-4-3-3-3) | all pubs | 6 awards
 
-Resume bullet: max 2 rendered lines | 1L: 105-111 chars | 2L: 189-205 chars (target ~200)
+Resume bullet: max 2 rendered lines | 1L: 100-106 chars | 2L: 189-205 chars (target ~200)
 CV bullet:     max 3 rendered lines | 2L: 168-182 chars | 3L: 250-268 chars (target ~175/~260)
 
 Cover letter: Resume = 1 page (250-300 words) | CV = 1-2 pages (350-450 words)
@@ -29,9 +29,9 @@ Full package: Resume + CL = 3 pages | CV + CL = 6-7 pages
 
 1. **Summary** (bundle Section 2): 4-5 sentences, exactly 5 body lines. 500-555 rendered chars (HARD MAX 570, floor ~490). Orphan: last line >= 78 chars.
    - **Headline Tagline:** 80-95 rendered chars, exactly 1 line.
-2. **Technical Skills** (bundle Section 4 + skills_taxonomy.md): Format C — 5 groups, default 4-3-2-2-2 (13 lines). Each dash = exactly 1 rendered line. Bold penalty: 119 - (0.5 x bold_chars).
+2. **Technical Skills** (bundle Section 4 + skills_taxonomy.md): Format C — 5 groups, default 4-3-2-2-2 (13 lines). Each dash = exactly 1 rendered line. Bold penalty: 111 - (0.5 x bold_chars).
 3. **Research Experience** (experience files + achievement_reframing_guide.md): Write bullets FRESH per Experience Bullet Writing Protocol (below). Max 2 rendered lines per bullet. Run char_count.py after each position.
-   - resume.cls: Args 3+4 on SAME italic line
+   - resume.cls: Args 3+4 on SAME muted-gray line (separated by |)
    - **After all positions: verify total variable bullet count matches budget**
 4. **Education**: FIXED — copy from template
 5. **Selected Publications** (pub_metadata.md): 5 publications scored per JD. Copy FIXED author+journal blocks, GENERATE JD-shortened title + tags. 2 rendered lines hard limit per entry.
@@ -42,9 +42,9 @@ Full package: Resume + CL = 3 pages | CV + CL = 6-7 pages
 
 1. **Research Summary** (bundle Section 2): Exactly 6 body lines. 500-540 rendered chars (HARD MAX 545, floor ~490). Orphan: last line >= 62 chars. Technical identity, not narrative.
 2. **Education**: FIXED — copy verbatim from cv_template.tex
-3. **Technical Expertise** (bundle Section 4 + skills_taxonomy.md): 4-4-3-3-3 ALWAYS (17 body lines). Bold penalty: 91 - (0.25 x bold_chars).
+3. **Technical Expertise** (bundle Section 4 + skills_taxonomy.md): 4-4-3-3-3 ALWAYS (17 body lines). Bold penalty: 94 - (0.25 x bold_chars).
 4. **Research Experience**: Exactly 45 rendered bullet lines across 19-21 bullets, plus sub-theme lines.
-   - cv.cls: Args 3+4 on SEPARATE italic lines
+   - cv.cls: Args 3+4 on SEPARATE muted-gray lines
    - Max 3 rendered lines per bullet. CV-2L <= 190, CV-3L <= 280 (target ~175/~260)
    - **Running total must reach exactly 45 rendered lines**
 5. **Fellowships & Honors**: FIXED — items from cv_template.tex
@@ -61,18 +61,18 @@ Full package: Resume + CL = 3 pages | CV + CL = 6-7 pages
 Strip all LaTeX markup before counting: `\textbf{X}` -> X, `\textit{X}` -> X, `\ce{X}` -> X, `$\beta$` -> 1 char, `\sim` -> 1 char, `$<$` -> 1 char, `$^\dagger$` -> 1 char, `--` -> 1 char (en-dash), `\underline{X}` -> X, `\href{url}{text}` -> text only.
 Count: all remaining characters including spaces.
 
-**Resume (10pt, textwidth=7.5in):**
+**Resume (resume.cls — 9.25pt Inter, ragged-right, 0.55in margins):**
 
 | Target Lines | Rendered Char Range | HARD MAX | Orphan Threshold |
 |-------|---------------|---------|------------------|
-| 1 line | 105-111 chars | 117 | -- |
+| 1 line | 100-106 chars | 110 | -- |
 | 2 lines | 189-205 chars | 218 | Last line >= 78 chars |
 
-**CV (11pt, textwidth=7.5in):**
+**CV (cv.cls — 10pt Inter, ragged-right, 0.75in margins):**
 
 | Target Lines | Rendered Char Range | HARD MAX | Orphan Threshold |
 |-------|---------------|---------|------------------|
-| 1 line | 88-93 chars | 101 | -- |
+| 1 line | 84-89 chars | 94 | -- |
 | 2 lines | 168-182 chars | 190 | Last line >= 65 chars |
 | 3 lines | 250-268 chars | 280 | Last line >= 65 chars |
 
@@ -86,7 +86,7 @@ Count: all remaining characters including spaces.
 
 | Variant | Document | Lines | Target Range | HARD MAX | Orphan | Word Target |
 |---------|----------|-------|-------------|----------|--------|-------------|
-| Resume-1L | 1/2-page resume | 1 | 105-111 | 117 | -- | ~13 words |
+| Resume-1L | 1/2-page resume | 1 | 100-106 | 110 | -- | ~13 words |
 | Resume-2L | 2-page resume | 2 | 189-205 | 218 | >= 78 | ~23-25 words |
 | CV-2L | 5-page CV | 2 | 168-182 | 190 | >= 65 | ~21-22 words |
 | CV-3L | 5-page CV | 3 | 250-268 | 280 | >= 65 | ~31-32 words |
@@ -97,15 +97,15 @@ Count: all remaining characters including spaces.
 
 Bold characters render wider than normal text. Adjust effective char limits accordingly.
 
-**Resume (10pt):** Effective limit = 119 - (0.5 x bold_char_count)
-- 0 bold: safe up to 119 chars/line
-- 2-4 bold tools (~10-25 bold chars): 107-112 effective --> use 105-111 as default
-- 5+ bold tools (~28+ bold chars): ~105 effective --> tighten to 99-105
+**Resume (9.25pt Inter):** Effective limit = 111 - (0.5 x bold_char_count)
+- 0 bold: safe up to 111 chars/line
+- 2-4 bold tools (~10-25 bold chars): 99-106 effective --> use 98-104 as default
+- 5+ bold tools (~28+ bold chars): ~97 effective --> tighten to 92-97
 
-**CV (11pt):** Effective limit = 91 - (0.25 x bold_char_count)
-- 0 bold: safe up to 91 chars/line (HARD MAX 93)
-- 2-3 bold tools (~10-18 bold chars): 85-88 effective --> use 83-88 as default
-- 5+ bold tools (~28+ bold chars): 83-85 effective --> tighten to 80-85
+**CV (10pt Inter):** Effective limit = 94 - (0.25 x bold_char_count)
+- 0 bold: safe up to 94 chars/line (HARD MAX 96)
+- 2-3 bold tools (~10-18 bold chars): 89-91 effective --> use 87-91 as default
+- 5+ bold tools (~28+ bold chars): ~87 effective --> tighten to 84-87
 
 Practical rule: count bold characters, subtract half (resume) or quarter (CV) from base limit.
 
@@ -136,7 +136,7 @@ For each element you write from scratch or modify (summary, skills dash, tagline
 
 ## Page Fill Budgets
 
-**2-Page Resume (resume.cls, 10pt):**
+**2-Page Resume (resume.cls, 9.25pt Inter):**
 
 Technical Skills uses Format C (categorized dash sub-items, 5 groups).
 Any internship/fixed position is ALWAYS present (FIXED bullets, not counted in variable budget).
@@ -149,7 +149,7 @@ The exact variable bullet count depends on your skills configuration and whether
 - Adding a skills line (e.g., 4-4-2-2-2 instead of 4-3-2-2-2): -1 variable bullet
 - Removing immigration line (non-USA JD): +1 variable bullet in some configurations
 
-**5-Page CV (cv.cls, 11pt) — LOCKED:**
+**5-Page CV (cv.cls, 10pt Inter) — LOCKED:**
 
 Total: **~209 rendered text lines** across 5 pages. 1-2 lines slack at bottom of page 5 is acceptable.
 
@@ -212,7 +212,7 @@ Italic subtitle = formal role + institution.
 | Internship | [Theme — FIXED] | [Your Role], [Company] | FLIPPED but FIXED |
 
 **CV -- CONVENTIONAL format:**
-Bold line = formal role title. Mentors on separate line. Sub-headers = story threads (underlined).
+Bold line = formal role title. Mentors on separate line. Sub-headers = story threads (bold muted gray).
 
 ---
 

@@ -14,28 +14,15 @@
 % make it bullet #2 and lead with a strong 2L bullet.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass{cv}
-\usepackage{hyperref}
+\documentclass{cv} % Notion-style; use \documentclass[letterpaper]{cv} for US Letter
 \usepackage{fontawesome}
-\usepackage{enumitem}
-\usepackage{tikz}
 \usepackage{graphicx}
 \hypersetup{
-    colorlinks = true,
-    linkcolor = [rgb]{0.1,0.1,0.6},
-    citecolor = [rgb]{0.4,0.4,0.4},
-    urlcolor = [rgb]{0.0,0.0,0.7},
     pdftitle = {[CONFIG: Full Name] - Academic CV},
     pdfauthor = {[CONFIG: Full Name]}
 }
-\usepackage{xcolor}
-\usepackage[version=4,arrows=pgf-filled]{mhchem}
-\usepackage[includefoot,left=0.75in,top=0.76in,right=0.75in,bottom=0.7in,textwidth=7.5in,textheight=10.9in]{geometry}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\rfoot{\thepage/\pageref{LastPage}}
+% Styling (Inter font, Notion colors, geometry, links, footer, mhchem) is set in cv.cls.
+% Do NOT load geometry, fancyhdr, or hyperref here -- it will clash with the class.
 
 %----------------------------------------------------------------------------------------
 %	HEADER — FIXED (3 rendered lines)
@@ -57,15 +44,15 @@
 % 3. Count rendered lines per page
 % 4. Update the budget numbers below
 %
-% TARGET: 5 pages total (A4, 11pt cv.cls)
+% TARGET: 5 pages total (A4, 10pt Inter cv.cls)
 % Typical budget: ~209 rendered text lines across 5 pages
 % 1-2 lines slack at bottom of last page is acceptable.
 %
 % FIXED = content that never changes across JDs
 % JD-DEPENDENT = Claude generates per JD, but line COUNT is fixed
 %
-% CHARACTER LIMITS (rendered chars at 11pt, cv.cls geometry):
-%   Chars per line (CPL): ~93-97
+% CHARACTER LIMITS (rendered chars at 10pt Inter, ragged-right, cv.cls geometry):
+%   Chars per line (CPL): ~92-97
 %
 %   CV-2L bullet: target 168-182 chars | HARD MAX 190 | orphan >= 65 chars
 %   CV-3L bullet: target 250-268 chars | HARD MAX 280 | orphan >= 65 chars
@@ -120,15 +107,15 @@
 %
 % DASH RULES:
 %   Each dash = exactly 1 rendered line. Bold 6-8 JD-relevant tools.
-%   BOLD PENALTY: target 83-88 rendered chars when bold tools present; ~93 without bold.
+%   BOLD PENALTY: target 87-91 rendered chars when bold tools present; ~94 without bold.
 
 \begin{rSection}{Technical Expertise}
 % FORMAT C: Use \skillgroup{} and \skilldash{} from cv.cls
 % LOCKED: 4-4-3-3-3 ALWAYS (17 body lines)
-% Each \skilldash = exactly 1 rendered line. Char limit: 91 - (0.25 x bold_chars)
+% Each \skilldash = exactly 1 rendered line. Char limit: 94 - (0.25 x bold_chars)
 
 \begin{skillgroup}{[GENERATE: Top JD-Relevant Domain]}
-\skilldash{[GENERATE: max ~83-88 chars with bold penalty]}
+\skilldash{[GENERATE: max ~87-91 chars with bold penalty]}
 \skilldash{[GENERATE]}
 \skilldash{[GENERATE]}
 \end{skillgroup}
@@ -162,7 +149,7 @@
 %  Position headers: FIXED | Sub-theme count: FIXED per position | Content: JD-DEPENDENT
 %========================================================================================
 % cv.cls rSubsection: {Title}{Dates}{Location}{Mentors/Advisors}
-% CRITICAL: cv.cls puts Args 3 and 4 on SEPARATE italic lines (unlike resume.cls!)
+% CRITICAL: cv.cls puts Args 3 and 4 on SEPARATE muted lines (unlike resume.cls!)
 % Sub-themes via \subtheme{...}
 % NEVER use code folder names as package names.
 

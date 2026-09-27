@@ -1,28 +1,29 @@
-\documentclass[11pt,a4paper,roman]{moderncv}
-\usepackage[english]{babel}
-\moderncvstyle{classic}
-\moderncvcolor{green}
-\usepackage[utf8]{inputenc}
-\usepackage{ragged2e}
-\usepackage[scale=0.79]{geometry}
-\usepackage[version=4,arrows=pgf-filled]{mhchem}
-\renewcommand*{\makeletterclosing}{\par\vspace{2ex}\closingname\par}
+\documentclass{cv} % Notion-style (shares cv.cls: Inter 10pt, 0.75in margins); [letterpaper]{cv} for US Letter
+% Styling (Inter font, Notion colors, geometry, links, footer, mhchem) is set in cv.cls.
+% Do NOT load geometry, fancyhdr, or hyperref here -- it will clash with the class.
 
 % ========== CUSTOMIZE THESE ==========
-\name{[YOUR FIRST]}{[YOUR LAST]}
-\address{[Your City, State ZIP]}
-\phone[mobile]{[+1 XXXXXXXXXX]}
-\email{[your@email.com]}
+\name{[Your Full Name, Degree]}
+\address{[your@email.com] \\ [+1 XXXXXXXXXX] \\ [Your City, State ZIP]}
 % ======================================
 
 \begin{document}
 
-\recipient{To}{Hiring Committee\\[Department/Group Name]\\[Division Name]\\[Company/Institution Name]\\[City, State ZIP]}
-\date{\today}
-\opening{Dear Members of the Hiring Committee,}
-\makelettertitle
+{\color{notiongray}\today}
 
-\begin{justify}
+\vspace{0.6em}
+% GENERATE: Recipient block (one line each; \par, not \\, so lines may start with "[")
+{\setlength{\parskip}{0pt}
+Hiring Committee\par
+[Department/Group Name]\par
+[Division Name]\par
+[Company/Institution Name]\par
+[City, State ZIP]\par}
+
+\vspace{0.8em}
+Dear Members of the Hiring Committee,
+
+\setlength{\parskip}{0.75em}
 % GENERATE: Paragraph 1 — Hook. Connect their work to your methodology. State the position.
 
 % GENERATE: Paragraph 2 — Current position. Key results with quantified metrics.
@@ -30,14 +31,14 @@
 % GENERATE: Paragraph 3 — Previous positions. Transferable methodology arc. Quantify.
 
 % GENERATE: Paragraph 4 (if National Lab/Academic) — Closing. Vision + collaboration + call to action.
-\end{justify}
 
-\vspace{0.3cm}
+\vspace{0.6em}
 % ========== CUSTOMIZE THESE ==========
-{Sincerely,\\
-[Your Full Name, Degree]\\
-[Your Current Title]\\
-[Your Current Institution]}
+{\setlength{\parskip}{0pt}
+Sincerely,\par\vspace{0.4em}
+{\bfseries\color{black}[Your Full Name, Degree]}\par
+{\color{notiongray}[Your Current Title]}\par
+{\color{notiongray}[Your Current Institution]}\par}
 % ======================================
 
 \end{document}

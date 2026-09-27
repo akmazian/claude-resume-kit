@@ -86,17 +86,17 @@ def count_em_dashes(text):
 def classify_bullet(char_count, bold_chars, fmt):
     """Classify bullet into variant and check limits."""
     if fmt == 'resume':
-        base = 119
+        base = 111
         penalty = 0.5
         tiers = [
-            ('1L', 105, 111, 117, None),
+            ('1L', 100, 106, 110, None),
             ('2L', 189, 205, 218, 78),
         ]
     else:
-        base = 91
+        base = 94
         penalty = 0.25
         tiers = [
-            ('1L', 88, 93, 101, None),
+            ('1L', 84, 89, 94, None),
             ('2L', 168, 182, 190, 65),
             ('3L', 250, 268, 280, 65),
         ]

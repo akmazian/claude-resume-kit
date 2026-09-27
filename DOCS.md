@@ -135,7 +135,12 @@ Session 3:  /critique                     → critique .md with score
 
 ### LaTeX Templates (edit directly)
 
-- **Fonts, colors, spacing** — modify `.cls` files
+All three documents (resume, CV, cover letter) share a **Notion-style** look: Inter typeface, large blue section headings with no rules, muted gray metadata, round bullets, ragged-right text, and a gray name / page-number footer. All styling lives in `resume.cls` and `cv.cls` (the cover letter uses `cv.cls`), so generated `.tex` files only contain content.
+
+- **Fonts, colors, spacing** — modify `.cls` files (palette: `notiontext`, `notiongray`, `notionlight`, `notionblue`)
+- **Paper size** — A4 by default; use `\documentclass[letterpaper]{resume}` (or `{cv}`) for US Letter
+- **Requirements** — needs the `inter` and `ragged2e` LaTeX packages (included in full TeX Live / MacTeX; on BasicTeX run `sudo tlmgr install inter ragged2e`)
+- **Char limits** — if you change font size or margins, re-calibrate the limits in `resume_builder/reference/critical_rules.md`, `resume_reference.md`, and `helpers/char_count.py`
 - **Section order** — reorder sections in `.tex` templates
 - **FIXED content** — fill in education, awards, publications, header
 - **Icons** — replace `GS.png` / `orcid.png` with your own

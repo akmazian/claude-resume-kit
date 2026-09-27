@@ -4,18 +4,18 @@
 
 ## Character Limits
 
-**Resume (10pt, textwidth=7.5in):**
+**Resume (resume.cls — 9.25pt Inter, ragged-right, 0.55in margins):**
 
 | Target Lines | Rendered Char Range | HARD MAX | Orphan Threshold |
 |-------|---------------|---------|------------------|
-| 1 line | 105-111 chars | 117 | -- |
+| 1 line | 100-106 chars | 110 | -- |
 | 2 lines | 189-205 chars | 218 | Last line >= 78 chars |
 
-**CV (11pt, textwidth=7.5in):**
+**CV (cv.cls — 10pt Inter, ragged-right, 0.75in margins):**
 
 | Target Lines | Rendered Char Range | HARD MAX | Orphan Threshold |
 |-------|---------------|---------|------------------|
-| 1 line | 88-93 chars | 101 | -- |
+| 1 line | 84-89 chars | 94 | -- |
 | 2 lines | 168-182 chars | 190 | Last line >= 65 chars |
 | 3 lines | 250-268 chars | 280 | Last line >= 65 chars |
 
@@ -23,15 +23,15 @@
 
 | Variant | Document | Lines | Target Range | HARD MAX | Orphan | Word Target |
 |---------|----------|-------|-------------|----------|--------|-------------|
-| Resume-1L | 1/2-page resume | 1 | 105-111 | 117 | -- | ~13 words |
+| Resume-1L | 1/2-page resume | 1 | 100-106 | 110 | -- | ~13 words |
 | Resume-2L | 2-page resume | 2 | 189-205 | 218 | >= 78 | ~23-25 words |
 | CV-2L | 5-page CV | 2 | 168-182 | 190 | >= 65 | ~21-22 words |
 | CV-3L | 5-page CV | 3 | 250-268 | 280 | >= 65 | ~31-32 words |
 
 ## Bold Width Penalty
 
-Resume (10pt): Effective limit = 119 - (0.5 x bold_char_count)
-CV (11pt): Effective limit = 91 - (0.25 x bold_char_count)
+Resume (9.25pt Inter): Effective limit = 111 - (0.5 x bold_char_count)
+CV (10pt Inter): Effective limit = 94 - (0.25 x bold_char_count)
 
 ## Orphan Rule
 
