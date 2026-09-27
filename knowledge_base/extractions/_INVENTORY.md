@@ -12,6 +12,7 @@
 
 | # | File | Paper Title | Position | Author Role | Status |
 |---|------|-------------|----------|-------------|--------|
-| _1_ | _example.md_ | _Example Paper Title_ | _Position 1_ | _first author_ | _published_ |
+| 1 | Zhang_profile_basics.md | Profile basics (education, honors, pubs, posters, teaching) — from existing resume | All | self | n/a (extracted 2026-09-26) |
+| 2 | ChenNeumann2026_viral_microproteins.md | The diverse functions of viral microproteins | Weissman Lab @ Whitehead | equal-contribution author (†, 3rd of 17) | bioRxiv preprint |
 
-_Delete example row and add your own as you extract papers._
+_Pending: the separate 20K-ORF / CRISPRi Perturb-seq project (unfinished, unpublished — AZ left the lab before completion); Ünal Lab thesis._

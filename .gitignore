@@ -32,3 +32,9 @@ __pycache__/
 
 # Session-specific (users may want to keep these — uncomment to ignore)
 # output/
+
+# User source material (keep extractions, not the raw PDFs)
+knowledge_base/papers/*
+knowledge_base/notes/*
+!knowledge_base/papers/.gitkeep
+!knowledge_base/notes/.gitkeep
