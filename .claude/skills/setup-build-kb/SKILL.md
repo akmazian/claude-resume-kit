@@ -17,18 +17,19 @@ Parse `$ARGUMENTS`:
 
 ## Startup
 
-1. Read `CLAUDE.md` — check KB Corrections Log
-2. Read `config.md` — load:
+1. Read `resume_builder/reference/shared_ops.md` — **Asking the User Things** (all gates below are interactive)
+2. Read `CLAUDE.md` — check KB Corrections Log
+3. Read `config.md` — load:
    - Personal Info (positions, institutions, dates)
    - Role Types table (defines which bundles to create)
    - Provenance Flags (propagate to all KB files)
    - Document Preferences (bullet variant defaults)
-3. Read `knowledge_base/extractions/_INVENTORY.md` — verify extractions exist
-4. Scan `resume_builder/` to see what's already built
+4. Read `knowledge_base/extractions/_INVENTORY.md` — verify extractions exist
+5. Scan `resume_builder/` to see what's already built
 
 **Pre-flight check:**
 - If `_INVENTORY.md` is empty or has no entries: "No extractions found. Run `/setup-extract` first." Stop.
-- If fewer than 2 extractions: warn "Only [N] extraction(s) found. KB quality improves with more papers. Continue anyway?"
+- If fewer than 2 extractions: warn that KB quality improves with more papers, then use `AskUserQuestion` — build now with [N] extraction(s) / stop and extract more first
 
 Progress: "Found [N] extractions across [M] positions. Config has [K] role types defined."
 
@@ -43,7 +44,7 @@ Progress: "Found [N] extractions across [M] positions. Config has [K] role types
 **For each position** (from `config.md` or inferred from extraction metadata):
 
 1. Group extractions by the position they belong to (based on dates, institution, or user clarification)
-2. Ask the user to confirm grouping if ambiguous: "I've grouped these papers under [Position]. Correct?"
+2. If grouping is ambiguous, confirm with `AskUserQuestion` — offer the candidate positions as options, your best grouping first
 
 **Experience file format** (`resume_builder/experience/experience_<position_key>.md`):
 
@@ -79,9 +80,9 @@ Progress: "Found [N] extractions across [M] positions. Config has [K] role types
 ```
 
 ### >>>>>> MANDATORY STOP — DO NOT PROCEED <<<<<<
-Present the experience file(s) — show achievement count per position, total bullet variants.
-Ask user to review: "Are the groupings correct? Any achievements missing or misattributed?"
-**You MUST wait for the user's explicit text response before continuing.**
+Present the experience file(s) as text — achievement count per position, total bullet variants.
+Then use `AskUserQuestion`: groupings correct as shown / a specific achievement is misattributed / something
+is missing. The blocking tool call satisfies this stop; a prose question does not.
 
 ---
 
@@ -192,9 +193,9 @@ The role-type table shows how to emphasize/de-emphasize for each target audience
 ```
 
 ### >>>>>> MANDATORY STOP — DO NOT PROCEED <<<<<<
-Present the reframing guide summary — show which achievements are HIGH for which role types.
-Ask user: "Does this priority mapping look right for your target roles?"
-**You MUST wait for the user's explicit text response before continuing.**
+Present the reframing guide summary as text — which achievements are HIGH for which role types.
+Then use `AskUserQuestion` to confirm the priority mapping, offering the specific re-rankings you think are
+most likely wrong as options. The blocking tool call satisfies this stop.
 
 ---
 
@@ -325,5 +326,5 @@ If all checked: "Knowledge base is ready. Save a JD to `JDs/` and run `/make-res
 If gaps: "[List what's missing and which phase to re-run]"
 
 ### >>>>>> MANDATORY STOP <<<<<<
-Present status report. Wait for user confirmation.
-**You MUST wait for the user's explicit text response before continuing.**
+Present the status report as text, then use `AskUserQuestion` for the next action (proceed to `/make-resume`
+/ re-run a phase / fix something). The blocking tool call satisfies this stop.

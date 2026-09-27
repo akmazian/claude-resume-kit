@@ -16,14 +16,15 @@ Parse `$ARGUMENTS`:
 
 ## Startup
 
-1. Read `CLAUDE.md` — check KB Corrections Log for known issues
-2. Read `config.md` — load Personal Info (to identify user's author position), Provenance Flags
-3. Read `knowledge_base/extractions/_INVENTORY.md` — see what's already extracted, avoid duplicates
+1. Read `resume_builder/reference/shared_ops.md` — **Asking the User Things** (Phase 2 is fully interactive)
+2. Read `CLAUDE.md` — check KB Corrections Log for known issues
+3. Read `config.md` — load Personal Info (to identify user's author position), Provenance Flags
+4. Read `knowledge_base/extractions/_INVENTORY.md` — see what's already extracted, avoid duplicates
 
 If the paper is already in the inventory:
 - Show the existing extraction path
-- Ask: "This paper is already extracted. Re-extract (overwrite) or skip?"
-- Wait for user response before proceeding
+- Use the **`AskUserQuestion`** tool to offer: **Re-extract (overwrite)** / **Skip** / **Add as a separate entry** (when the file covers a distinct project)
+- The tool blocks until answered — never proceed on an assumption
 
 ---
 
@@ -48,20 +49,52 @@ Progress: "Reading paper... [title] by [first author] et al., [year]"
 
 ---
 
-## Phase 2: Clarify User's Role
+## Phase 2: Clarify User's Role — ASK INTERACTIVELY
 
-If the user's contribution is not obvious from the paper (common for multi-author work), ask:
+Multi-author work almost never makes the user's own contribution legible from the text. Resolve it by asking
+**one question at a time with the `AskUserQuestion` tool**. Never print a numbered list of questions in your
+response — that forces the user to re-type answers to five things at once, and it buries the follow-up
+questions that actually change the bullets.
 
-**Questions to ask (skip any that are already clear from the paper):**
-1. "What was your specific contribution? (e.g., all computational work, specific analysis, code development)"
-2. "Did you develop any tools, methods, or code used in this paper?"
-3. "Were there other groups or institutions involved? What was your group's role?"
-4. "Any quantitative results you can personally claim? (e.g., 'I ran all the simulations')"
-5. "Is there anything in this paper that should NOT appear on your resume? (e.g., collaborator's experimental data)"
+### Rules
+
+1. **One question per `AskUserQuestion` call.** Two only when tightly coupled and the second is meaningless
+   without the first. Each answer shapes the next question.
+2. **Options must name real things from the paper** — specific assays, figure panels, library sizes, named
+   datasets, sections. Generic options ("most of it" / "some of it") waste the turn. Finish Phase 1 first so
+   every option is concrete and checkable.
+3. **Lead with your best guess, labeled `(Recommended)`**, derived from the paper's own author-contributions
+   statement plus anything the user said in `$ARGUMENTS`. A correct guess the user just confirms is the fast path.
+4. **Follow the forks.** An answer revealing a split ("I did the experiments but not the final analysis",
+   "that's a different project", "everything except X") earns a follow-up question, never an assumption.
+5. **Use `multiSelect: true`** when listing candidate experiments the user may have done some subset of.
+6. **Stop when the provenance picture is complete** — typically 3-6 questions. Do not keep asking for detail
+   that cannot change a bullet or a hedge.
+
+### Topics to resolve (skip any the paper or `$ARGUMENTS` already settles)
+
+| Topic | Why it matters |
+|-------|----------------|
+| Which specific experiments/analyses were the user's | Sets every verb in the bullet seeds |
+| Bench vs. computational split on shared datasets | "Performed" vs. "carried out initial analysis" vs. hedge |
+| Contributions outside the user's main section | Users often ran validation work credited elsewhere |
+| Tools, vectors, libraries, pipelines the user built | Infrastructure bullets (and Rule 1: no code folder names) |
+| Anything that must NOT appear on a resume | Collaborator data, embargoed or unpublished results |
+| Conflicts with the existing KB or current resume | Must be settled by the user, never silently resolved |
+
+### Cross-check before you stop asking
+
+Compare what the user claims against:
+- the paper's **author-contributions** statement — the published record of their role;
+- existing extractions, `config.md` Provenance Flags, and the user's current resume.
+
+When a claim the user already makes conflicts with the paper or with their answers, **raise it as its own
+`AskUserQuestion`**, with options for how to record it (drop it / reframe with hedged verbs / it belongs to
+different work). Never pick for them. Log the resolution in `config.md` KB Corrections so it cannot return.
 
 ### >>>>>> MANDATORY STOP — DO NOT PROCEED <<<<<<
-Present your understanding of the paper and ask the clarifying questions above.
-**You MUST wait for the user's explicit text response before continuing.**
+Write no extraction file until these interactive questions are answered. `AskUserQuestion` blocks until the
+user responds, which satisfies this stop — a prose list of questions does NOT.
 
 ---
 
@@ -164,7 +197,9 @@ Present extraction summary. Wait for user feedback or next paper.
 ## Batch Mode
 
 If `$ARGUMENTS` contains multiple file paths:
-1. Process each paper through Phases 1-4 sequentially
-2. Ask Phase 2 clarifying questions for ALL papers at once (grouped) before writing any extractions
-3. After all extractions: present combined inventory update and summary
+1. Read every paper (Phase 1) first, so questions can be grounded in all of them
+2. Run Phase 2 interactively **per paper**, still one question per `AskUserQuestion` call. Do not merge
+   unrelated papers into one picker; papers from the same project may share a question only when one answer
+   genuinely covers both.
+3. Write all extractions (Phase 3), then update the inventory once (Phase 4)
 4. Single STOP at the end (not per paper)

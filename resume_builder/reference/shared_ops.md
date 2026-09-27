@@ -72,6 +72,27 @@ Example: `output/Acme/e2e_acme_engineer_resume.tex` → `acme_engineer` → look
 
 ---
 
+## Asking the User Things — ALWAYS INTERACTIVE
+
+Every MANDATORY STOP, confirmation gate, and clarifying question in every skill uses the
+**`AskUserQuestion`** tool. Never print a numbered list of questions in your response and wait for the user
+to type answers to all of them — it is slow to answer, and it hides the follow-ups that matter.
+
+- **One question per call.** Two only when tightly coupled. Each answer shapes the next question.
+- **Concrete options**, named from the actual document/JD/paper — not "most of it" / "some of it".
+- **Best guess first, labeled `(Recommended)`**, so a correct guess needs only one click.
+- **`multiSelect: true`** when the user may have done or want some subset.
+- **Follow the forks** — an answer that reveals a split earns a follow-up, never an assumption.
+- **Approval gates too:** role type + bundle + framing (`/make-resume` Phase 0), bullet-plan confirmation
+  (Phase 1), grouping and priority-matrix checks (`/setup-build-kb`), edit confirmation (`/edit-resume`),
+  re-run prompts (`/critique`). Offer the real alternatives as options.
+- The tool blocks until answered, which **satisfies any MANDATORY STOP**. A prose question list does not.
+
+Free-text prose is still right for *presenting* things — plans, drafts, findings, summaries. The rule is
+about asking.
+
+---
+
 ## Progress Commentary
 
 Provide brief status updates at each major step. Minimum: what you're doing + what you found.
