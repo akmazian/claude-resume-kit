@@ -89,14 +89,14 @@ Read the resume/CV from five different personas, in order. Each persona sees onl
 
 ### Perspective 2: Recruiter Glance (10 seconds)
 
-**What they read:** Name, current title/employer, education line, header tagline, first 2 lines of summary. Nothing else.
+**What they read:** Name, current title/employer, education line, header tagline, first position theme line + first bullet. Nothing else. (No Summary section by design.)
 
 **What they decide:** "Forward to hiring manager or reject?"
 
 **Check:**
 - Does the header tagline use target-domain language (not source-domain)?
 - Does the current employer signal credibility for this role type?
-- Does the education line clear the bar? If pedigree gap exists, does the summary compensate in the first 2 lines?
+- Does the education line clear the bar? If pedigree gap exists, does the first position's theme line + lead bullet compensate?
 - Is there a prestige signal in the first 2 lines (top venue, major metric)?
 - Would a non-technical recruiter understand what this person does?
 
@@ -104,13 +104,13 @@ Read the resume/CV from five different personas, in order. Each persona sees onl
 
 ### Perspective 3: HR Screen (30 seconds)
 
-**What they read:** Full summary + skills section headers + first bullet per position + education.
+**What they read:** Position theme lines + first bullet per position + education.
 
 **What they decide:** "Does this person meet the basic qualifications? Schedule phone screen?"
 
 **Check:**
-- Does the summary bridge from actual domain to target domain? (The bridge sentence is the single most important sentence in the document)
-- Do skills group NAMES (not just content) signal target-domain relevance?
+- Do the theme lines + lead bullets bridge from actual domain to target domain? (No Summary section by design — never recommend adding one)
+- Do position theme lines signal target-domain relevance? (There is no Skills section — config.md.)
 - Does the first bullet under each position deliver the strongest JD-relevant achievement?
 - Are years of experience consistent with JD requirements?
 - Immigration status present if required?
@@ -141,7 +141,7 @@ Read the resume/CV from five different personas, in order. Each persona sees onl
 - **Provenance flags:** All works-in-progress or under-review items properly flagged?
 - **Verb discipline:** Contributing-author bullets use hedged verbs? Full-ownership verbs only where justified?
 - **Publication coherence:** Do pub tags match the resume's domain framing? Do paper titles (which can't be changed) create cognitive dissonance with the reframed bullets?
-- **Internal consistency:** Does the summary match the bullets? Does the cover letter match the resume?
+- **Internal consistency:** Do the theme lines match the bullets? Does the cover letter match the resume?
 - **Over-saturation:** Any keyword repeated >8 times? (Borderline at 6-8, concern at 9+)
 
 **Output:** Truthfulness table (claim → verified? → source) + any inconsistencies found.
@@ -155,8 +155,8 @@ Score each dimension independently, then compute weighted total.
 | # | Dimension | Weight | What to Assess |
 |---|-----------|--------|---------------|
 | 1 | ATS Keyword Match | 15% | JD keyword coverage rate, verbatim vs semantic, missing high-value terms |
-| 2 | Summary | 10% | Bridge sentence, target-domain language, prestige signals, forward-looking intent |
-| 3 | Skills Section | 10% | Group names (domain signal), content relevance, bold accuracy, no wasted entries |
+| 2 | Position Framing | 10% | Theme lines + lead bullets bridge to target domain, target-domain language, prestige signals (no Summary section by design) |
+| 3 | Keyword Integration | 10% | JD must-have methods/tools appear in theme lines + bullets with evidence (no Skills section by design — never recommend adding one) |
 | 4 | Bullet Quality | 25% | Per-bullet JD alignment (HIGH/MEDIUM/LOW), reframing quality, quantification, action verbs |
 | 5 | Publication Selection | 10% | Venue prestige, tag relevance, first-author ratio, domain gap acknowledgment |
 | 6 | Narrative Coherence | 15% | Header-to-footer story, domain thread count, first-impression timing |
@@ -216,14 +216,14 @@ These are the improvements that move the score meaningfully. Typically:
 - Domain reframing that was missed during generation
 - Missing JD keyword that can be added truthfully
 - Bullet swap (weak bullet → stronger unused achievement)
-- Summary bridge sentence missing or weak
+- Theme line / lead bullet bridge missing or weak
 
 For each: Current text → Proposed text → Why → Expected point impact.
 
 ### Tier 2: MEDIUM IMPACT (each worth 0.3-0.9 points)
 - Minor reframing (vocabulary swap)
 - Publication tag refinements
-- Skills group name adjustments
+- Position theme-line adjustments
 - One additional keyword insertion
 
 ### Tier 3: COSMETIC / DIMINISHING RETURNS (each worth < 0.3 points)
@@ -386,8 +386,8 @@ If a cover letter was generated in the same session, run all checks below. Detec
 | Dimension | Score | Weight | Weighted | Notes |
 |---|---|---|---|---|
 | ATS Keywords | X/10 | 15% | X.XX | [1-line note] |
-| Summary | X/10 | 10% | X.XX | |
-| Skills Section | X/10 | 10% | X.XX | |
+| Position Framing | X/10 | 10% | X.XX | |
+| Keyword Integration | X/10 | 10% | X.XX | |
 | Bullet Quality | X/10 | 25% | X.XX | |
 | Publications | X/10 | 10% | X.XX | |
 | Narrative Coherence | X/10 | 15% | X.XX | |

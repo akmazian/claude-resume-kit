@@ -30,7 +30,7 @@ Read `config.md` Provenance Flags before editing any content. Verify every claim
 ### FIXED Sections — Refuse if Asked to Edit
 Check `config.md` FIXED Sections for the list of template-locked sections. Say no and explain: these are template-locked across all outputs.
 
-VARIABLE sections only: Summary, Technical Skills, Research Experience bullets/headers.
+VARIABLE sections only: Research Experience bullets/theme headers. (No Summary or Technical Skills section — never add one.)
 
 ---
 
@@ -96,7 +96,7 @@ Gather change requests from THREE sources:
 Cross-check against **session file framing strategy** — edits must stay consistent with decisions from `/make-resume`.
 
 **For each change, classify:**
-- **MODIFY:** Change text of existing bullet/summary/skills. Budget unchanged.
+- **MODIFY:** Change text of existing bullet/theme line. Budget unchanged.
 - **SWAP:** Replace one bullet with another. Budget unchanged if same variant.
 - **ADD:** Insert new bullet. Budget increases by rendered lines.
 - **REMOVE:** Drop a bullet. Budget decreases.
@@ -123,7 +123,7 @@ Load ONLY what the confirmed edits need:
 
 - **All edits:** `resume_builder/support/ai_fingerprint_rules.md` — scan for banned words/patterns before and after edits
 - **Bullet expand/rewrite/add:** `resume_builder/experience/` files + matching bundle + `resume_builder/support/achievement_reframing_guide.md`
-- **Summary rewrite:** Bundle (S2 summary guide) + `resume_builder/support/skills_taxonomy.md`
+- **Theme-line rewrite:** Bundle (S2 guide) + `resume_builder/support/skills_taxonomy.md` (there is no Summary section)
 - **Cover letter edits:** `resume_builder/support/significance_*.md` + `resume_builder/reference/cl_reference.md`
 - **Simple fixes** (orphans, headers, spacing): No extra files needed
 
@@ -142,7 +142,7 @@ Apply edits one section at a time. After each edited section:
 
 Update session file Edit N Status after each individual edit:
 - Edit 1 (orphan fix): DONE
-- Edit 2 (Summary rewrite): IN_PROGRESS
+- Edit 2 (Theme-line rewrite): IN_PROGRESS
 
 ### Resume/CV Verification Gates
 | Gate | Check | If FAIL |

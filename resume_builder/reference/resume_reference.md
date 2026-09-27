@@ -9,8 +9,9 @@
 ## QUICK BUDGET CARD (read this FIRST)
 
 ```
-RESUME (2-page, resume.cls):  ~20 variable bullets | Skills 13 lines (4-3-2-2-2) | 5 pubs | 5 awards
-CV     (5-page, cv.cls):      19-21 variable bullets (45 rendered lines) | Skills 17 lines (4-4-3-3-3) | all pubs | 6 awards
+RESUME (2-page, resume.cls):  up to ~20 variable bullets | NO skills section | pubs FIXED | awards FIXED
+CV     (5-page, cv.cls):      up to 19-21 variable bullets (45 rendered lines) | NO skills section | all pubs | awards FIXED
+Never pad to hit a budget: if the KB supports fewer strong bullets, use fewer and accept a shorter document.
 
 Resume bullet: max 2 rendered lines | 1L: 100-106 chars | 2L: 189-205 chars (target ~200)
 CV bullet:     max 3 rendered lines | 2L: 168-182 chars | 3L: 250-268 chars (target ~175/~260)
@@ -27,26 +28,26 @@ Full package: Resume + CL = 3 pages | CV + CL = 6-7 pages
 
 ### Resume (resume.cls)
 
-1. **Summary** (bundle Section 2): 4-5 sentences, exactly 5 body lines. 500-555 rendered chars (HARD MAX 570, floor ~490). Orphan: last line >= 78 chars.
-   - **Headline Tagline:** 80-95 rendered chars, exactly 1 line.
-2. **Technical Skills** (bundle Section 4 + skills_taxonomy.md): Format C — 5 groups, default 4-3-2-2-2 (13 lines). Each dash = exactly 1 rendered line. Bold penalty: 111 - (0.5 x bold_chars).
+1. **No Summary and no Technical Skills section** (config.md). Put the JD's must-have methods/tools (bundle Section 4) into position theme lines and bullets.
+   - **Headline Tagline** (header, optional): 80-95 rendered chars, exactly 1 line.
+2. **Education**: FIXED — copy from template (Education comes BEFORE experience in this template)
 3. **Research Experience** (experience files + achievement_reframing_guide.md): Write bullets FRESH per Experience Bullet Writing Protocol (below). Max 2 rendered lines per bullet. Run char_count.py after each position.
    - resume.cls: Args 3+4 on SAME muted-gray line (separated by |)
    - **After all positions: verify total variable bullet count matches budget**
-4. **Education**: FIXED — copy from template
-5. **Selected Publications** (pub_metadata.md): 5 publications scored per JD. Copy FIXED author+journal blocks, GENERATE JD-shortened title + tags. 2 rendered lines hard limit per entry.
-6. **Honors & Awards**: FIXED — items from template
+4. **Honors & Awards**: FIXED — items from template
+5. **Publications**: FIXED — copy from template (currently 1 preprint). If the list grows past ~5, switch to "Selected Publications" scored per JD via pub_metadata.md.
+6. **Posters & Presentations**, **Teaching**: FIXED — copy from template
 7. **Immigration notice**: FIXED for USA JDs. Delete for non-USA JDs.
 
 ### CV (cv.cls)
 
-1. **Research Summary** (bundle Section 2): Exactly 6 body lines. 500-540 rendered chars (HARD MAX 545, floor ~490). Orphan: last line >= 62 chars. Technical identity, not narrative.
+1. **No Research Summary** (config.md).
 2. **Education**: FIXED — copy verbatim from cv_template.tex
-3. **Technical Expertise** (bundle Section 4 + skills_taxonomy.md): 4-4-3-3-3 ALWAYS (17 body lines). Bold penalty: 94 - (0.25 x bold_chars).
-4. **Research Experience**: Exactly 45 rendered bullet lines across 19-21 bullets, plus sub-theme lines.
+3. **No Technical Expertise section** (config.md). JD methods/tools go into sub-theme names and bullets.
+4. **Research Experience**: Up to 45 rendered bullet lines across 19-21 bullets, plus sub-theme lines.
    - cv.cls: Args 3+4 on SEPARATE muted-gray lines
    - Max 3 rendered lines per bullet. CV-2L <= 190, CV-3L <= 280 (target ~175/~260)
-   - **Running total must reach exactly 45 rendered lines**
+   - **Running total may not exceed 45 rendered lines; never pad with unsupported bullets**
 5. **Fellowships & Honors**: FIXED — items from cv_template.tex
 6. **Publications**: FIXED — full list from cv_template.tex
 7-10. **Presentations, Mentorship, Collaborations, Computing**: All FIXED from cv_template.tex
@@ -120,7 +121,7 @@ Practical rule: count bold characters, subtract half (resume) or quarter (CV) fr
 
 ### Char Verification Protocol (EVERY written element)
 
-For each element you write from scratch or modify (summary, skills dash, tagline, any edited bullet):
+For each element you write from scratch or modify (tagline, theme line, any edited bullet):
 
 1. **DRAFT** -- Use word-count target as initial guess (prose only, NOT skills dashes)
 2. **STRIP** -- Remove LaTeX markup (\textbf{}, \ce{}, $..$) to get rendered text
@@ -138,15 +139,14 @@ For each element you write from scratch or modify (summary, skills dash, tagline
 
 **2-Page Resume (resume.cls, 9.25pt Inter):**
 
-Technical Skills uses Format C (categorized dash sub-items, 5 groups).
+There is NO Technical Skills section (config.md).
 Any internship/fixed position is ALWAYS present (FIXED bullets, not counted in variable budget).
 
-**Variable Bullet Budget (Format C):**
+**Variable Bullet Budget:**
 
-The exact variable bullet count depends on your skills configuration and whether a USA immigration line is present. Typical range: **20-21 variable bullets** across all research positions. Count your FIXED bullets separately — they are set in the template.
+The exact variable bullet count depends on the FIXED content and whether a USA immigration line is present. Upper bound: **~20-21 variable bullets** (more room now that Skills is gone, but never pad) across all research positions. Count your FIXED bullets separately — they are set in the template.
 
 **Adjustments:**
-- Adding a skills line (e.g., 4-4-2-2-2 instead of 4-3-2-2-2): -1 variable bullet
 - Removing immigration line (non-USA JD): +1 variable bullet in some configurations
 
 **5-Page CV (cv.cls, 10pt Inter) — LOCKED:**
@@ -158,8 +158,6 @@ The exact line budget depends on your template's FIXED sections (publications, p
 | Category | Status |
 |----------|--------|
 | Header, Education, Honors, Pubs, Presentations, etc. | FIXED (count from template) |
-| Research Summary | JD-DEPENDENT (typically 7 lines: 1 heading + 6 body) |
-| Technical Expertise | JD-DEPENDENT (typically 18 lines: 1 heading + 17 body) |
 | Experience bullets | JD-DEPENDENT (**target 45 rendered lines**, 19-21 bullets, 2L/3L mix) |
 | Sub-theme names | JD-DEPENDENT (varies by position count) |
 
@@ -226,9 +224,9 @@ The following elements are set in the `.cls` files and templates. **NEVER change
 - **`.cls` formatting** (font sizes, section rules, item separators, skill group spacing) — never override with inline LaTeX.
 - **Header layout** (name, email, location, icons) — structure is template-locked. Only the email address and link URLs are configurable.
 
-**If content spills to an extra page (orphan lines):** Fix by shortening VARIABLE content only (summary, skills dashes, experience bullets). Count rendered characters to ensure bullets actually fit their target line count (2L or 3L). A bullet that is "2L" in the budget but renders as 3L due to character overflow is the most common cause of page spill. Before declaring any output done, compile with pdflatex and verify page count matches target (resume=2, CV=5).
+**If content spills to an extra page (orphan lines):** Fix by shortening VARIABLE content only (experience bullets). Count rendered characters to ensure bullets actually fit their target line count (2L or 3L). A bullet that is "2L" in the budget but renders as 3L due to character overflow is the most common cause of page spill. Before declaring any output done, compile with pdflatex and verify page count matches target (resume=2, CV=5).
 
-**When updating an existing .tex output (not generating from scratch):** Only modify VARIABLE content — summary text, skills group names/dashes, experience bullet text, sub-theme names. Never touch FIXED sections, vspaces, geometry, or cls overrides, even if a critique flags them as improvable. If a critique targets a FIXED section, note it for the next full regeneration instead.
+**When updating an existing .tex output (not generating from scratch):** Only modify VARIABLE content — experience bullet text, theme lines, sub-theme names. Never touch FIXED sections, vspaces, geometry, or cls overrides, even if a critique flags them as improvable. If a critique targets a FIXED section, note it for the next full regeneration instead.
 
 ---
 
@@ -296,7 +294,7 @@ For each identified gap, assess:
 **For resumes (1-page or 2-page):**
 1. `bundle_[role_type].md` — Role-specific generation content (Sections 1-5)
 2. `achievement_reframing_guide.md` — Role-type framing directives for all achievements
-3. `skills_taxonomy.md` — Full skills inventory for Format C generation
+3. `skills_taxonomy.md` — Skills inventory (keywords to weave into theme lines/bullets; no Skills or Summary section)
 4. `pub_metadata.md` — Publication database with scoring tags
 5. `resume.cls` — Document class file
 6. `resume_template.tex` — Structural template (contains FIXED sections)
@@ -305,7 +303,7 @@ For each identified gap, assess:
 **For CVs (5-page or full):**
 1. `bundle_[role_type].md` — Role-specific generation content (Sections 1-5)
 2. `achievement_reframing_guide.md` — Role-type framing directives for all achievements
-3. `skills_taxonomy.md` — Full skills inventory for Technical Expertise generation
+3. `skills_taxonomy.md` — Skills inventory (keywords to weave into sub-themes/bullets; no Skills or Summary section)
 4. `pub_metadata.md` — Publication database with scoring tags
 5. `cv.cls` — Document class file
 6. `cv_template.tex` — Structural template (contains FIXED sections)

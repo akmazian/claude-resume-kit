@@ -227,7 +227,7 @@ Ask user: "Does this priority mapping look right for your target roles?"
 
 ---
 
-## S2: Summary Guide
+## S2: Positioning Guide (theme lines, lead bullets, CL hook — there is no Summary section)
 
 **Headline pattern:** [Role-appropriate headline template]
 **Building blocks:** [3-5 phrases that should appear in summaries for this role type]
@@ -247,7 +247,7 @@ Ask user: "Does this priority mapping look right for your target roles?"
 
 ## S4: Skills Guide
 
-**Bold tools (resume):** [3-5 tools to bold in Technical Skills for this role type]
+**Bold tools (resume):** [3-5 tools to bold inside bullets for this role type — there is no Technical Skills or Summary section]
 **Must-include skills:** [skills that MUST appear for ATS match]
 **Nice-to-have:** [skills to include if budget allows]
 **Omit:** [skills irrelevant to this audience]

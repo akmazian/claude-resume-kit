@@ -42,7 +42,8 @@ Resume 2L: last line >= 78 chars. CV 2L: >= 65 chars. CV 3L: >= 65 chars.
 
 All FIXED sections (internships, education, publications, honors/awards, header block) are set in the template.
 NEVER change: \vspace values, \geometry settings, .cls formatting, header layout.
-Only modify VARIABLE sections: Summary, Technical Skills, Experience bullets/headers.
+Only modify VARIABLE sections: Experience bullets/theme headers.
+No Summary, Technical Skills, or Technical Expertise section (config.md: none) — never add one.
 
 ## Provenance Flags
 
@@ -73,6 +74,6 @@ See `CLAUDE.md` for your project-specific KB corrections log. Always check befor
 
 ## Budget Reminder
 
-Resume: ~20 variable bullets (exact count depends on skills config + immigration line). CV: 19-21 bullets, 45 rendered lines.
+Resume: up to ~20 variable bullets (no skills section; exact count depends on FIXED content + immigration line). Never pad. CV: 19-21 bullets, 45 rendered lines.
 Resume bullets: ALL 2L. CV bullets: 2L/3L mix OK.
 **CV Page 1 rule:** First bullet of first experience MUST be 2L. A 3L first bullet overflows page 1.

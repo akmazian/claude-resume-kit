@@ -24,8 +24,8 @@
 - **CV pages:** 5
 - **Resume bullet variant:** 2L (all variable bullets are 2-line)
 - **CV bullet variant:** 2L/3L mix
-- **Skills config (resume):** 4-3-2-2-2 (13 lines, 5 groups)
-- **Skills config (CV):** 4-4-3-3-3 (17 lines, 5 groups)
+- **Technical Skills section:** NONE — omit from resume and CV (user preference).
+- **Summary section:** NONE — omit from resume and CV (user preference). Weave JD keywords (methods, tools) into position theme lines and experience bullets instead.
 - **Immigration line:** Yes | "Authorized to work in the United States"
 
 ---

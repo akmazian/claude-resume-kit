@@ -125,7 +125,7 @@ Proceeding without confirmation misaligns the entire resume and requires full re
    - For hybrid JDs: read both bundles. Use primary for Priority Matrix, secondary for Reframing Map on 1-2 bridging bullets.
 2. All experience files from `resume_builder/experience/`
 3. `resume_builder/support/achievement_reframing_guide.md`
-4. `resume_builder/support/skills_taxonomy.md`
+4. `resume_builder/support/skills_taxonomy.md` (keyword source for theme lines/bullets — there is NO Technical Skills or Summary section)
 5. `resume_builder/support/pub_metadata.md`
 
 **Present one table per position:**
@@ -178,19 +178,15 @@ If you proceed without confirmation, you will generate bullets the user didn't a
 3. `resume_builder/support/ai_fingerprint_rules.md` — Banned words, structural rules, post-gen checklist
 
 **Read template:** `resume_builder/templates/resume_template.tex` or `cv_template.tex` + `.cls`
-FIXED sections (from `config.md` FIXED Sections) are template-locked — only generate VARIABLE sections (Summary, Skills, Experience bullets/headers).
+FIXED sections (from `config.md` FIXED Sections) are template-locked — only generate VARIABLE sections (Experience bullets/theme headers). Do NOT add a Summary, Technical Skills, or Technical Expertise section (config.md: none).
 
 **Read section specs:** `resume_builder/reference/resume_reference.md` — Section-by-Section Specs for your format
 
 **Generate section by section** (follow Section-by-Section Specs):
-1. Summary → check against session framing strategy
-   - Update Status → `Phase 2: Summary DONE`
-2. Technical Skills
-   - Update Status → `Phase 2: Skills DONE`
-3. Each position's bullets → **CHAR COUNT GATE after each position**
+1. Each position's theme line + bullets → check theme lines against session framing strategy (they carry the "bridge" to the target domain now that there is no Summary) → **CHAR COUNT GATE after each position**
    - Position titles: bold theme + date must fit ONE line (see resume_reference.md). If wrapping, shorten title.
    - After each position: Update Status → `Phase 2: [Position] DONE`
-4. **PAGE FILL GATE after all experience**
+2. **PAGE FILL GATE after all experience** — never pad with weak or unsupported bullets to hit a line count
 
 Save .tex to `output/<FolderName>/e2e_<name>_resume.tex` or `_cv.tex`
 

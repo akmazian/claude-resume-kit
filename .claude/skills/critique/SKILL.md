@@ -84,7 +84,7 @@ Find and read the session file for the .tex being critiqued (use derivation prot
        (e) Gap ranking (fatal/serious/cosmetic) (f) Methodology transfer test (g) Competitive landscape
     2. **Five-Perspective Read-Through** — ATS, Recruiter (10s), HR (30s), HM (2min), Technical (10min) — each with verdict
     3. **Eight-Dimension Scoring** — weighted table summing to 100
-       (ATS 15%, Summary 10%, Skills 10%, Bullets 25%, Publications 10%, Narrative 15%, Visual 5%, Credibility 10%)
+       (ATS 15%, Position Framing 10%, Keyword Integration 10%, Bullets 25%, Publications 10%, Narrative 15%, Visual 5%, Credibility 10%)
     4. **Interview Likelihood** — per-reader probability + ceiling analysis
     5. **Tiered Improvements** — Tier 1 (>=1pt each), Tier 2 (0.3-0.9), Tier 3 (<0.3)
     6. **Interview Bridge Points** — 5-7 resume-to-interview talking points

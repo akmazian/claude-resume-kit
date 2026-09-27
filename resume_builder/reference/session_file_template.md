@@ -97,8 +97,6 @@ Note: Any FIXED positions (e.g., internships) are not included in this plan.
 - Phase 0: [PENDING | DONE]
 - Phase 1: [PENDING | DONE (N bullets confirmed)]
 - Phase 2 Resume:
-  - Summary: [PENDING | DONE]
-  - Skills: [PENDING | DONE]
   - Position 1 ([N] bullets): [PENDING | DONE | IN_PROGRESS]
   - Position 2 ([N] bullets): [PENDING | DONE | IN_PROGRESS]
   - Position 3 ([N] bullets): [PENDING | DONE | IN_PROGRESS]
